@@ -4,15 +4,15 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
     const ccipSimulatorDeployment = await deployments.get("CCIPLocalSimulator")
     const ccipSimulator = await ethers.getContractAt("CCIPLocalSimulator", ccipSimulatorDeployment.address)
-    const [
+    const {
         chainSelector_, 
-        sourceRouter, 
+        sourceRouter_, 
         destinationRouter_, 
         wrappedNative_, 
-        linkToken, 
+        linkToken_, 
         ccipBnM_, 
         ccipLnM_
-    ] = await ccipSimulator.configuration()
+    } = await ccipSimulator.configuration()
 
     const nftDeployment = await deployments.get("MyToken")
     const nftAddr = nftDeployment.address
@@ -21,7 +21,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const NFTPoolLockAndRelease = await deploy("NFTPoolLockAndRelease", {
         from: account1,
         // _router _link nftAddr
-        args: [sourceRouter, linkToken, nftAddr],
+        args: [sourceRouter_, linkToken_, nftAddr],
         log: true,
     })
     log("NFTPoolLockAndRelease 合约部署成功:", NFTPoolLockAndRelease.address)
