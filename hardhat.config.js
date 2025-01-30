@@ -5,6 +5,10 @@ require("@nomicfoundation/hardhat-ethers");
 require("hardhat-deploy");
 require("hardhat-deploy-ethers");
 
+require('@chainlink/env-enc').config();
+
+const { SEPOLIA_JSON_URL, PRIVATE_KEY, AMOY_JSON_URL } = process.env
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.28",
@@ -13,4 +17,18 @@ module.exports = {
       default: 0,
     },
   },
+  networks: {
+    sepolia: {
+      chainId: 11155111,
+      url: SEPOLIA_JSON_URL,
+      accounts: [PRIVATE_KEY],
+      blockConfirmations: 6,
+    },
+    amoy: {
+      chainId: 80002,
+      url: AMOY_JSON_URL,
+      accounts: [PRIVATE_KEY],
+      blockConfirmations: 6,
+    }
+  }
 };
