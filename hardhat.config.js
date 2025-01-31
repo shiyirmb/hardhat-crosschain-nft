@@ -38,5 +38,8 @@ module.exports = {
         destChain: "sepolia",
       },
     }
+  },
+  gasReporter: {
+    enabled: true,
   }
 };
