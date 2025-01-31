@@ -7,6 +7,8 @@ require("hardhat-deploy-ethers");
 
 require('@chainlink/env-enc').config();
 
+require("./task");
+
 const { SEPOLIA_JSON_URL, PRIVATE_KEY, AMOY_JSON_URL } = process.env
 
 /** @type import('hardhat/config').HardhatUserConfig */

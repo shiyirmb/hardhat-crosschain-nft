@@ -1,3 +1,4 @@
+const CONFIRMATIONS = 6 // 区块确认个数
 const devlopmentChains = ["local", "hardhat"]
 
 const networkConfig = {
@@ -18,6 +19,7 @@ const networkConfig = {
 }
 
 module.exports = {
+    CONFIRMATIONS,
     devlopmentChains,
     networkConfig,
 }
