@@ -1,7 +1,7 @@
 const { task } = require("hardhat/config");
 const { CONFIRMATIONS } = require("../help-hardhat-config")
 
-task("mint-nft", "铸造NFT").setAction(async({ taskArgs, hre }) => {
+task("mint-nft", "铸造NFT").setAction(async(taskArgs, hre) => {
     const { account1 } = await getNamedAccounts()
     const nft = await ethers.getContract("MyToken", account1)
 

@@ -25,12 +25,18 @@ module.exports = {
       url: SEPOLIA_JSON_URL,
       accounts: [PRIVATE_KEY],
       blockConfirmations: 6,
+      companionNetworks: {
+        destChain: "amoy",
+      },
     },
     amoy: {
       chainId: 80002,
       url: AMOY_JSON_URL,
       accounts: [PRIVATE_KEY],
       blockConfirmations: 6,
+      companionNetworks: {
+        destChain: "sepolia",
+      },
     }
   }
 };

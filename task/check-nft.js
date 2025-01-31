@@ -1,6 +1,6 @@
 const { task } = require("hardhat/config");
 
-task("check-nft", "查看NFT").setAction(async({ taskArgs, hre }) => {
+task("check-nft", "查看NFT").setAction(async(taskArgs, hre) => {
     const { account1 } = await getNamedAccounts()
     const nft = await ethers.getContract("MyToken", account1)
 
